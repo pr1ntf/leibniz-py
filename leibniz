@@ -1,0 +1,29 @@
+#!/usr/local/bin/python
+
+# Import stuff
+import redis
+from decimal import *
+# Create connection to localhost redis server
+r = redis.StrictRedis(host='localhost', port=6379, db=0)
+# Grab beginning variables
+i = r.get('iterations')
+scale = r.get('scale')
+s = Decimal(r.get('seed'))
+# Set the correct scale
+getcontext().prec = int(scale)
+# Start calculation
+while (i > 0):
+	pi1 = (Decimal(4) / Decimal(s)) - (Decimal(4) / Decimal(s + 2))
+	pi2 = (Decimal(4) / Decimal(s + 4)) - (Decimal(4) / Decimal(s + 6))
+	pi3 = Decimal(pi1) + Decimal(pi2)
+	pi4 = Decimal(r.get('pi'))
+	pi5 = Decimal(pi3) + Decimal(pi4)
+	r.set('pi', pi5)
+	# Get seed ready for next workunit
+	s = s + 8
+	r.set('seed', s)
+	# Iteration increment
+	i = int(i) - 1
+# Print the latest approximation when done
+lpi = Decimal(r.get('pi'))
+print lpi
