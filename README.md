@@ -6,8 +6,6 @@ I wrote it to begin testing simple clustering using redis and someting that eats
 
 * Python
 
-* [redis](https://github.com/antirez/redis) 
-Redis is an in-memory database that persists on disk.
+* [redis](https://github.com/antirez/redis) - Redis is an in-memory database that persists on disk.
 
-* [redis-py](https://github.com/andymccurdy/redis-py)
-For communication between python and redis.
+* [redis-py](https://github.com/andymccurdy/redis-py) - For communication between python and redis.
