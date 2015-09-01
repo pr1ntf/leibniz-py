@@ -1,5 +1,5 @@
 # leibniz-py
-Python script that approximates pi using the Gregory-Leibniz series.
+Python script that approximates pi using the [Gregory-Leibniz Series](https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80).
 I wrote it to begin testing simple clustering using redis and someting that eats up CPU. 
 
 ## Requirements
